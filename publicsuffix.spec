@@ -2,14 +2,16 @@
 %define shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Summary:	A list of all known public suffixes
-Name:		publicsuffix-list
+Name:		publicsuffix
 Version:	0
 License:	MPLv2.0
 Release:	1
 Group:		Networking/WWW
 URL:		https://publicsuffix.org/
-Source0:	https://github.com/publicsuffix/list/archive/%{commit}/%{name}-%{commit}.zip
+Source0:	https://github.com/%{name}/list/archive/%{commit}/%{name}-%{commit}.zip
 BuildArch:	noarch
+
+Provides:	%{name}-list
 
 %description
 The Public Suffix List is an initiative of Mozilla, but is maintained as
@@ -24,7 +26,7 @@ browsers to, for example:
  *   Accurately sort history entries by site
 
 %files
-%{_datadir}/publicsuffix
+%{_datadir}/%{name}
 %doc README.md
 %doc LICENSE
 
@@ -38,6 +40,6 @@ browsers to, for example:
 %make test-syntax
 
 %install
-install -dm 0755 %{buildroot}%{_datadir}/publicsuffix/
-install -pm 0644 public_suffix_list.dat %{buildroot}%{_datadir}/publicsuffix/
+install -dm 0755 %{buildroot}%{_datadir}/%{name}/
+install -pm 0644 public_suffix_list.dat %{buildroot}%{_datadir}/%{name}/
 
