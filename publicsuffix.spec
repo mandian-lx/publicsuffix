@@ -13,6 +13,8 @@ BuildArch:	noarch
 
 Provides:	%{name}-list
 
+BuildRequires:	python3
+
 %description
 The Public Suffix List is an initiative of Mozilla, but is maintained as
 a community resource. It is available for use in any software, but was
